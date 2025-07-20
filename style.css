@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    /* background-color: black; */ /* Bu satırı silin veya yorum satırı yapın */
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url('images/fetch.png'); /* Görsel dosyanızın adı ve yolu */
+    background-size: cover;              /* Ekranı tamamen doldurur */
+    background-repeat: no-repeat;           /* Tekrarlamayı engeller */
+    background-position: center center;     /* Ortalar */
+    color: rgb(255, 0, 0);                 /* Yazı rengi */
+    
+}
+
+body::after {
+    content: "";
+    display: block;
+    height: 200px; /* Sayfanın en altına 200px boşluk ekler, ihtiyaca göre artırabilirsin */
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 32px;
+    position: relative;
+}
+
+.navbar button {
+    font-size: 2rem;
+    padding: 8px 32px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.navbar button:hover {
+    color: #ffd700;
+    background: none;
+}
+
+.logo-placeholder {
+    position: absolute;
+    right: 12px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 24px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 80px;
+    margin-left: 60px;
+    /* background-color: black; */ /* Eğer burada varsa bunu da kaldırın */
+}
+
+.main-logo {
+    width: 420px; /* Logo görselinin genişliği, ihtiyaca göre değiştir */
+    max-width: 90vw;
+    height: auto;
+    display: block;
+}
+
+.subtitle {
+    color: #7fff00;
+    font-size: 2rem;
+    margin-top: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.updates-section {
+    margin-top: 700px;      /* Daha fazla boşluk, istediğin kadar artırabilirsin */
+    width: 100%;
+    min-height: 100vh;      /* Ekran yüksekliği kadar alan kaplasın */
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    padding-left: 200px; /* Sağdan boşluk bırakır, değeri ihtiyacına göre ayarla */
+}
+
+.updates-row {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;   /* Sola değil sağa yasla */
+    align-items: flex-start;
+    gap: 48px;
+    min-height: 0;
+}
+
+.updates-info {
+    flex: 1;
+    min-width: 260px;
+    max-width: 400px;
+    font-size: 1.3rem;
+    color: #222;
+    margin-top: 32px;
+}
+
+.updates-title {
+    color: #222;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.updates-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.update-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    min-width: 220px;
+    max-width: 100%;
+}
+
+.update-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+}
+
+.update-info {
+    padding: 16px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    max-width: 90vw;
+    margin: 40px auto;
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    padding: 16px;
+}
+
+.slider-img {
+    width: 500px;
+    max-width: 80vw;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 0 16px;
+}
+
+.slider-arrow {
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-arrow:hover {
+    background: #eee;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-end;
+    }
+    .logo-placeholder {
+        position: static;
+        margin-left: 0;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    .updates-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+    .updates-info {
+        max-width: 90vw;
+        text-align: center;
+    }
+    .updates-list {
+        justify-content: center;
+    }
+}
