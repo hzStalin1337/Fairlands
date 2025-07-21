@@ -1,17 +1,13 @@
 ::-webkit-scrollbar {
-    width: 15px;
-    height: 15px;
+    width: 8px; /* Kaydırma çubuğunun genişliği */
 }
-
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 0, 162, 0.5);
-    border-radius: 35px;
+    background-color: #FEDD6C; /* Kaydırma çubuğunun rengi */
+    border-radius: 4px; /* Kenar yuvarlama */
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 0, 162, 0.8);
+    background-color: #FEDD6C; /* Hover rengi */
 }
-
 @font-face {
   font-family: 'Century Gothic Pro';
   src: url('fonts/fonnts.com-Century_Gothic_Pro_Bold.otf') format('opentype');
@@ -70,8 +66,8 @@ body {
     overflow-x: hidden; /* <- bu satır yatay kaydırmayı engeller */
     font-family: inherit;
     background-image: url('images/fetch.png'); /* Görsel dosyanızın adı ve yolu */
-    background-repeat: no-repeat;          /* Tekrar etmez */
     background-size: cover;              /* Ekranı tamamen doldurur */
+    background-repeat: no-repeat;           /* Tekrarlamayı engeller */
     background-position: center center;     /* Ortalar */
     color: rgb(255, 0, 162);                /* Yazı rengi */
     justify-content: center;    /* İçerikleri ortalar */
@@ -81,11 +77,6 @@ body {
     min-height: 100vh; /* Ekran yüksekliğini kaplar */
 
 }
-img {
-    max-width: 100px;
-    height: auto; /* Görsellerin orantılı kalmasını sağlar */
-}
-
 body::after {
     content: "";
     display: block;
@@ -94,7 +85,6 @@ body::after {
 
 .navbar {
     display: fixed;
-    top: 100px; /* Navbar'ı sayfanın üstünden 100px aşağıda başlatır */
     justify-content: center;
     align-items: center;
     gap: 24px;
