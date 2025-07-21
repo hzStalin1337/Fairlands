@@ -36,6 +36,7 @@ header {
     height: 80px;
     background-color: rgba(0, 59, 72, 0.51);
     display: flex;
+    top: 0px;
     align-items: center;
     justify-content: space-between; /* Logo sola, menü ortaya/sağa */
     padding: 0 24px;
