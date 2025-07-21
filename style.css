@@ -35,21 +35,17 @@ header {
     width: 165px;
     height: 66px;
     object-fit: contain; /* Görselin bozulmasını önler */
+    transition: 0.2s;
 }
 .logo:hover {
-  /* Mevcut stiller */
-  border-radius: 12px;
-  transform: scale(1.05);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Tek satırda birleştirildi */
+  transform: scale(1.10);
+    rotate: 0.7deg;
 
-  /* Gölgeyi ortalamak ve daha üste taşımak için */
-  box-shadow: 0 0 12px rgba(254, 221, 108, 1); /* x-ofset ve y-ofseti 0 yaparak ortala */
 }
 
 .logo:active {
   transform: scale(0.95) translateY(3px); /* Tıklama efekti */
   /* Gölgeyi tıklamada da ortalamak ve daha üste taşımak için */
-  box-shadow: 0 0 8px rgba(254, 221, 108, 0.8); /* Aktif durumda daha az belirgin bir gölge */
 }
 
 body {
