@@ -130,6 +130,11 @@ body::after {
     max-width: 90vw;
     height: auto;
     display: block;
+    transition: 0.2s;
+}
+.main-logo:hover {
+    transform: scale(1.10);
+    rotate: 0.7deg;
 }
 
 .subtitle {
@@ -137,6 +142,13 @@ body::after {
     font-size: 2rem;
     margin-top: 24px;
     font-family:inherit;
+    transition: 0.2s;
+}
+.subtitle:hover {
+    color: #FEDD6C;
+    text-shadow: 0 0 2px #FEDD6C;
+    scale: 1.10;
+    rotate: 0.5deg;
 }
 
 .updates-section {
