@@ -155,6 +155,7 @@ body::after {
     font-family:inherit;
     transition: 0.2s;
     cursor: pointer;
+    animation: jump-duration 5s infinite; /* Animasyon ekle */
 }
 .subtitle:hover {
     color: #FEDD6C;
@@ -341,6 +342,25 @@ body::after {
     100% {
         transform: translateY(0);
     }
+}
+@keyframes jump-duration {
+  0% {
+    transform: translateY(0); /* Başlangıç: Obje yerde */
+  }
+  /* Zıplamanın tepe noktası: Hareketin yarısı (1s hareketin 0.5s'si)
+     Toplam 5s döngünün %10'una denk gelir (0.5s / 5s = 0.10) */
+  10% {
+    transform: translateY(-20px); /* İstediğin kadar piksel yukarı zıplat */
+  }
+  /* Yere geri iniş: Hareketin sonu (1s hareketin 1s'i)
+     Toplam 5s döngünün %20'sine denk gelir (1s / 5s = 0.20) */
+  20% {
+    transform: translateY(0); /* Geri yere in */
+  }
+  /* Animasyonun kalan %80'lik kısmında (yani 4 saniye boyunca) obje hareketsiz kalacak */
+  100% {
+    transform: translateY(0); /* Döngünün sonunda hala yerde */
+  }
 }
 @media (max-width: 768px) {
    .navbar-button {
