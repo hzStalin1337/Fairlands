@@ -127,7 +127,7 @@ body::after {
 
 .navbar-btn {
     width: 220px;
-    height: 70px;
+    height: 60px;
     position: relative; /* Bu butonlar için relative kalabilir, eğer özel konumlandırma gerekiyorsa */
     border:none !important;
     top: 7px !important;
@@ -143,8 +143,9 @@ body::after {
     margin-right: 10px !important;
 }
 .howtoplay-btn {
-    width: 150px !important;
-    margin-left: 10px !important;
+    position: absolute;
+    width: 190px;
+    height: 56px;
 }
 .menu-btn{
     position: relative;
