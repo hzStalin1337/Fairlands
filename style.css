@@ -79,7 +79,7 @@ body::after {
 }
 
 .navbar button {
-    margin-right: 60px;
+    margin-right: 40px;
     font-size: 2.2rem;
     padding: 3px 32px;
     background: none;
@@ -100,7 +100,9 @@ body::after {
 .navbar button:active {
   transform: translateY(3px) scale(0.95); /* Tıklama efekti */
 }
-
+.navbar-button:last-child {
+       display: none; /* Son butonu gizle */
+   }
 .logo-placeholder {
     position: absolute;
     right: 12px;
@@ -122,11 +124,14 @@ body::after {
 }
 
 .main-logo {
+    position: relative;
+    top: -50px;
     width: 420px; /* Logo görselinin genişliği, ihtiyaca göre değiştir */
     max-width: 90vw;
     height: auto;
     display: block;
     transition: 0.2s;
+    cursor: pointer;
 }
 .main-logo:hover {
     transform: scale(1.10);
@@ -134,11 +139,14 @@ body::after {
 }
 
 .subtitle {
+    position: relative;
+    top: -30px;
     color: white;
     font-size: 2rem;
-    margin-top: 24px;
+    margin-top: 44px;
     font-family:inherit;
     transition: 0.2s;
+    cursor: pointer;
 }
 .subtitle:hover {
     color: #FEDD6C;
@@ -263,30 +271,11 @@ body::after {
     background: #eee;
 }
 
-@media (max-width: 700px) {
-    .navbar {
-        flex-direction: column;
-        gap: 12px;
-        align-items: flex-end;
-    }
-    .logo-placeholder {
-        position: static;
-        margin-left: 0;
-        margin-top: 12px;
-    }
-}
-
-@media (max-width: 900px) {
-    .updates-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-    }
-    .updates-info {
-        max-width: 90vw;
-        text-align: center;
-    }
-    .updates-list {
-        justify-content: center;
-    }
+@media (max-width: 768px) {
+   .navbar-button {
+       display: none; /* Tüm butonları gizle */
+   }
+    .navbar-button:last-child {
+       display: relative; /* Son butonu göster */
+   }
 }
