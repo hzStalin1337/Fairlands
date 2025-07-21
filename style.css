@@ -187,6 +187,18 @@ body::after {
     rotate: 0.7deg;
 }
 
+.youtube-video {
+    position: relative;
+    top: -270px;
+    left: 950px; /* Video görselinin sola kaydırılması */
+    width: 568px;
+    height: 368px;
+    display: block;
+    margin-top: 20px;
+    border-radius: 50px; /* Köşeleri yuvarla */
+    transition: 0.2s;
+}
+
 .subtitle {
     position: relative;
     top: 30px;
