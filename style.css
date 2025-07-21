@@ -94,18 +94,22 @@ body::after {
     gap: 24px;
     margin: 0px; /* <-- Burayı düşürdük */
     margin-right: 5px;
-    padding: 5px;
-    position: relative;
+    padding: 30px;
 }
 
 .navbar button {
     position: relative;
-    top: -25px;
-    margin-right: 40px;
+    top: 5px;
+    margin-right: 0px;
     font-size: 2.2rem;
-    padding: 3px 32px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
     background: none;
-    border: 2px solid #FEDD6C;
+    border: none !important;
     border-radius: 15px;
     color: #fff;
     cursor: pointer;
@@ -115,10 +119,7 @@ body::after {
 }
 
 .navbar button:hover {
-    color: #FEDD6C;
-    text-shadow: 0 0 5px #FEDD6C;
-    scale: 1.05;
-    rotate: 1deg;
+    transform: scale(1.05) rotate(1deg);
 }
 .navbar button:active {
   transform: translateY(3px) scale(0.95); /* Tıklama efekti */
@@ -126,17 +127,33 @@ body::after {
 .navbar-button:last-child {
        display: none; /* Son butonu gizle */
 }
-.shop-btn {
+
+.navbar-btn {
+    width: 220px;
+    height: 70px;
     position: relative;
-    border: 0 !important;
-    top: 10px !important;
+    border:none !important;
+    top: 0px !important;
+    right: 0px !important;
+    left: 0px !important;
+    bottom: 0px !important;
     outline: none;
     box-shadow: none;
     background: none;
 }
-.navbar-btn {
-    width: 236px;
-    height: 89px;
+.socials-btn {
+    width: 220px !important;
+    margin-right: 10px !important;
+}
+.howtoplay-btn {
+    width: 150px !important;
+    margin-left: 10px !important;
+}
+.menu-btn{
+    position: relative;
+    right: 30px;
+    margin-left: 30px;
+    top: -15px !important;
 }
 .logo-placeholder {
     position: absolute;
@@ -222,6 +239,7 @@ body::after {
     align-items: right;
     width: 100%;
     height: 100px; /* Discord logosunun görünmesi için yeterli yükseklik */
+    animation: discord-fixed-logo-animation 1s infinite; /* Animasyon ekle */
 }
 .animation-discord-logo {
     display: block;
@@ -236,13 +254,12 @@ body::after {
     background: transparent;
     justify-content: center;
     align-items: center;
-    animation: jump 1s infinite; /* Animasyon ekle */
+    animation: discord-fixed-logo-animation 1s infinite; /* Animasyon ekle */
 }
 .animation-discord-logo:hover {
     color: #7289DA; /* Discord'un mavi rengi */
     text-shadow: 0 0 2px #7289DA;
     font-size: 60px; /* Hover efekti ile boyutu artır */
-    rotate: 0.5deg;
 }
 
 .updates-section {
@@ -374,21 +391,45 @@ body::after {
 @keyframes jump-duration {
   0% {
     transform: translateY(0); /* Başlangıç: Obje yerde */
+    rotate: 0deg; /* Başlangıçta hafif döndürme */
   }
   /* Zıplamanın tepe noktası: Hareketin yarısı (1s hareketin 0.5s'si)
      Toplam 5s döngünün %10'una denk gelir (0.5s / 5s = 0.10) */
   10% {
     transform: translateY(-20px); /* İstediğin kadar piksel yukarı zıplat */
+    rotate: 5deg; /* Zıplama sırasında hafif döndürme */
+    scale: 1.05; /* Zıplama sırasında hafif büyütme */
   }
   /* Yere geri iniş: Hareketin sonu (1s hareketin 1s'i)
      Toplam 5s döngünün %20'sine denk gelir (1s / 5s = 0.20) */
   20% {
     transform: translateY(0); /* Geri yere in */
+    rotate: 0deg; /* Geri yere inişte hafif döndürme */
+    scale: 1;
   }
   /* Animasyonun kalan %80'lik kısmında (yani 4 saniye boyunca) obje hareketsiz kalacak */
   100% {
     transform: translateY(0); /* Döngünün sonunda hala yerde */
+    rotate: 0deg; /* Döngünün sonunda döndürme sıfırlanır */
+    scale: 1;
   }
+}
+
+@keyframes discord-fixed-logo-animation {
+    0% {
+        transform: translateY(0); /* Başlangıçta yerde */
+        rotate: 0deg; /* Başlangıçta hafif döndürme */
+        scale: 1;
+    }
+    50% {
+        transform: translateY(-5px); /* Zıplama tepe noktası */
+        scale: 1; /* Zıplama sırasında hafif büyütme */
+    }
+    100% {
+        transform: translateY(0); /* Geri yere inme */
+        rotate: 0deg; /* Geri yere inişte döndürme sıfırlanır */
+        scale: 1;
+    }
 }
 @media (max-width: 768px) {
    .navbar-button {
