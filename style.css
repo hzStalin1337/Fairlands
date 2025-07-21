@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {
     width: 8px; /* Kaydırma çubuğunun genişliği */
+    background-color: rgb(10, 38, 41);
 }
 ::-webkit-scrollbar-thumb {
     background-color: #FEDD6C; /* Kaydırma çubuğunun rengi */
