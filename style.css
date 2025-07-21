@@ -134,9 +134,9 @@ body::after {
     box-shadow: none;
     background: none;
 }
-.shop-btn-image{
-    width: 200px;
-    height: 80px;
+.navbar-btn {
+    width: 10px;
+    height: 8px;
 }
 .logo-placeholder {
     position: absolute;
