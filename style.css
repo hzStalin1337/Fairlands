@@ -21,28 +21,31 @@
     font-weight: bold;
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Tüm elemanlar için kutu modelini ayarla */
 }
 
 main {
     width: 100%;
-    /* background-color: black; */ /* Bu satırı silin veya yorum satırı yapın */
 }
 
 html, body {
     height: 100%;
 }
+
 header {
     width: 100%;
     height: 80px;
     background-color: rgba(0, 59, 72, 0.51);
-    display: flex;
+    position: fixed; /* Header'ı sabitler */
     top: 0px;
+    left: 0px;
+    display: flex; /* İçindeki elemanları hizalamak için */
     align-items: center;
     justify-content: space-between; /* Logo sola, menü ortaya/sağa */
     padding: 0 24px;
-    animation: 0.2s color;
+    animation: 0.2s color; /* Bu animasyon tanımı CSS'te yok, eklemen gerekebilir */
+    z-index: 1000; /* Diğer elemanların üstünde kalması için */
 }
-
 .logo {
     position: relative;
     left: 20px;
@@ -59,26 +62,23 @@ header {
 
 .logo:active {
   transform: scale(0.95) translateY(3px); /* Tıklama efekti */
-  /* Gölgeyi tıklamada da ortalamak ve daha üste taşımak için */
 }
 
 body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* <- bu satır yatay kaydırmayı engeller */
+    overflow-x: hidden; /* Yatay kaydırmayı engeller */
     font-family: inherit;
     background-image: url('images/fetch.png'); /* Görsel dosyanızın adı ve yolu */
-    background-size: cover;            /* Görseli tam ekran yapar */
-    background-attachment: fixed;      /* Görseli sabitler */             
-    background-repeat: no-repeat;           /* Tekrarlamayı engeller */
-    background-position: center center;     /* Ortalar */
-    color: rgb(255, 0, 162);                /* Yazı rengi */
-    justify-content: center;    /* İçerikleri ortalar */
+    background-size: cover;          /* Görseli tam ekran yapar */
+    background-attachment: fixed;    /* Görseli sabitler */
+    background-repeat: no-repeat;    /* Tekrarlamayı engeller */
+    background-position: center center;    /* Ortalar */
+    color: rgb(255, 0, 162);            /* Yazı rengi */
     display: flex;
     flex-direction: column; /* Dikey hizalama */
     align-items: center; /* Yatay hizalama */
     min-height: 100vh; /* Ekran yüksekliğini kaplar */
-
 }
 body::after {
     content: "";
@@ -87,26 +87,22 @@ body::after {
 }
 
 .navbar {
-    position: relative;
-    top: 0px; /* Header'ın en üstünde kalması için */
-    display: fixed;
+    /* Header içinde olduğu için position: fixed; kaldırıldı */
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 24px;
-    margin: 0px; /* <-- Burayı düşürdük */
-    margin-right: 5px;
-    padding: 30px;
+    margin-right: 5px; /* İhtiyacına göre ayarla */
+    padding: 0; /* Header içinde olduğu için padding'i sıfırlayabilirsin */
 }
 
 .navbar button {
-    position: relative;
-    top: 5px;
+    /* position: relative ve top kaldırıldı, navbar'ın hizalaması yeterli */
     margin-right: 0px;
     font-size: 2.2rem;
-    align-items: center;
+    align-items: center; /* Flex item içindeki içeriği dikeyde ortalar */
     text-align: center;
-    justify-content: center;
-    justify-items: center;
+    justify-content: center; /* Flex item içindeki içeriği yatayda ortalar */
     padding-left: 10px;
     padding-right: 10px;
     background: none;
@@ -126,15 +122,15 @@ body::after {
   transform: translateY(3px) scale(0.95); /* Tıklama efekti */
 }
 .navbar-button:last-child {
-       display: none; /* Son butonu gizle */
+    display: none; /* Son butonu başlangıçta gizle (mobil için) */
 }
 
 .navbar-btn {
     width: 220px;
     height: 70px;
-    position: relative;
+    position: relative; /* Bu butonlar için relative kalabilir, eğer özel konumlandırma gerekiyorsa */
     border:none !important;
-    top: 0px !important;
+    top: 7px !important;
     right: 0px !important;
     left: 0px !important;
     bottom: 0px !important;
@@ -171,16 +167,14 @@ body::after {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 80px;
+    margin-top: 80px; /* Header yüksekliği kadar boşluk bırak */
     margin-left: 60px;
-    /* background-color: black; */ /* Eğer burada varsa bunu da kaldırın */
 }
 
 .main-logo {
     position: relative;
     top: 100px;
     left: 150px; /* Logo görselinin sola kaydırılması */
-    width: 420px; /* Logo görselinin genişliği, ihtiyaca göre değiştir */
     width: 350px;
     height: 150px;
     display: block;
@@ -240,7 +234,7 @@ body::after {
     align-items: right;
     width: 100%;
     height: 100px; /* Discord logosunun görünmesi için yeterli yükseklik */
-    animation: discord-fixed-logo-animation 1s infinite; /* Animasyon ekle */
+    /* animation: discord-fixed-logo-animation 1s infinite; Bu animasyon iki kez tanımlanmış */
 }
 .animation-discord-logo {
     display: block;
@@ -285,7 +279,7 @@ body::after {
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;   /* Sola değil sağa yasla */
+    justify-content: flex-end;    /* Sola değil sağa yasla */
     align-items: flex-start;
     gap: 48px;
     min-height: 0;
@@ -394,21 +388,16 @@ body::after {
     transform: translateY(0); /* Başlangıç: Obje yerde */
     rotate: 0deg; /* Başlangıçta hafif döndürme */
   }
-  /* Zıplamanın tepe noktası: Hareketin yarısı (1s hareketin 0.5s'si)
-     Toplam 5s döngünün %10'una denk gelir (0.5s / 5s = 0.10) */
   10% {
     transform: translateY(-20px); /* İstediğin kadar piksel yukarı zıplat */
     rotate: 5deg; /* Zıplama sırasında hafif döndürme */
     scale: 1.05; /* Zıplama sırasında hafif büyütme */
   }
-  /* Yere geri iniş: Hareketin sonu (1s hareketin 1s'i)
-     Toplam 5s döngünün %20'sine denk gelir (1s / 5s = 0.20) */
   20% {
     transform: translateY(0); /* Geri yere in */
     rotate: 0deg; /* Geri yere inişte hafif döndürme */
     scale: 1;
   }
-  /* Animasyonun kalan %80'lik kısmında (yani 4 saniye boyunca) obje hareketsiz kalacak */
   100% {
     transform: translateY(0); /* Döngünün sonunda hala yerde */
     rotate: 0deg; /* Döngünün sonunda döndürme sıfırlanır */
@@ -436,7 +425,13 @@ body::after {
    .navbar-button {
        display: none; /* Tüm butonları gizle */
    }
-    .navbar-button:last-child {
-       display: relative; /* Son butonu göster */
+    /* Sadece menü butonu gösterilecekse, ona özel bir sınıf ekleyip display: block; yapmalısın. */
+    /* Örneğin: */
+    .menu-btn { /* Eğer HTML'de bir menu-btn sınıfın varsa */
+       display: block !important; /* veya flex */
+    }
+   /* Eğer son butonu hala göstermek istiyorsan */
+   .navbar-button:last-child {
+       display: block !important; /* Veya display: flex; */
    }
 }
