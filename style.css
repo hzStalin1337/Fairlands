@@ -166,6 +166,7 @@ body::after {
     display: block;
     transition: 0.2s;
     cursor: pointer;
+    animation: jump-duration 5s infinite; /* Animasyon ekle */
 }
 .main-logo:hover {
     transform: scale(1.10);
@@ -180,8 +181,6 @@ body::after {
     margin-top: 44px;
     font-family:inherit;
     transition: 0.2s;
-    cursor: pointer;
-    animation: jump-duration 5s infinite; /* Animasyon ekle */
 }
 .subtitle:hover {
     color: #FEDD6C;
