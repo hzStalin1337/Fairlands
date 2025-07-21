@@ -32,6 +32,8 @@ header {
 }
 
 .logo {
+    position: relative;
+    left: 20px;
     width: 165px;
     height: 66px;
     object-fit: contain; /* Görselin bozulmasını önler */
@@ -57,8 +59,13 @@ body {
     background-size: cover;              /* Ekranı tamamen doldurur */
     background-repeat: no-repeat;           /* Tekrarlamayı engeller */
     background-position: center center;     /* Ortalar */
-    color: rgb(255, 0, 0);                 /* Yazı rengi */
-    
+    color: rgb(255, 0, 0);                /* Yazı rengi */
+    justify-content: center;    /* İçerikleri ortalar */
+    display: flex;
+    flex-direction: column; /* Dikey hizalama */
+    align-items: center; /* Yatay hizalama */
+    min-height: 100vh; /* Ekran yüksekliğini kaplar */
+
 }
 
 body::after {
@@ -83,7 +90,8 @@ body::after {
     font-size: 2.2rem;
     padding: 3px 32px;
     background: none;
-    border: none;
+    border: 2px solid #FEDD6C;
+    border-radius: 15px;
     color: #fff;
     cursor: pointer;
     font-family: inherit;
@@ -152,6 +160,59 @@ body::after {
     color: #FEDD6C;
     text-shadow: 0 0 2px #FEDD6C;
     scale: 1.10;
+    rotate: 0.5deg;
+}
+.animation-arrowbox {
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 3rem;
+    margin-top: 24px;
+    transition: 0.2s;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+    animation: jump 1s infinite; /* Animasyon ekle */
+}
+.animation-arrow {
+    position: relative;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px; /* Okun görünmesi için yeterli yükseklik */
+}
+.animation-discord-logo-box {
+    position: fixed;
+    top: 500px;
+    right: 50px; /* Sağdan boşluk bırakır, değeri ihtiyacına göre ayarla */
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    width: 100%;
+    height: 100px; /* Discord logosunun görünmesi için yeterli yükseklik */
+}
+.animation-discord-logo {
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    border: none;
+    font-size: 3rem;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: 0.2s;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+    animation: jump 1s infinite; /* Animasyon ekle */
+}
+.animation-discord-logo:hover {
+    color: #7289DA; /* Discord'un mavi rengi */
+    text-shadow: 0 0 2px #7289DA;
+    font-size: 60px; /* Hover efekti ile boyutu artır */
     rotate: 0.5deg;
 }
 
@@ -270,7 +331,17 @@ body::after {
 .slider-arrow:hover {
     background: #eee;
 }
-
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 @media (max-width: 768px) {
    .navbar-button {
        display: none; /* Tüm butonları gizle */
