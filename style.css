@@ -67,7 +67,8 @@ body {
     overflow-x: hidden; /* <- bu satır yatay kaydırmayı engeller */
     font-family: inherit;
     background-image: url('images/fetch.png'); /* Görsel dosyanızın adı ve yolu */
-    background-size: cover;              /* Ekranı tamamen doldurur */
+    background-size: cover;            /* Görseli tam ekran yapar */
+    background-attachment: fixed;      /* Görseli sabitler */             
     background-repeat: no-repeat;           /* Tekrarlamayı engeller */
     background-position: center center;     /* Ortalar */
     color: rgb(255, 0, 162);                /* Yazı rengi */
@@ -159,10 +160,11 @@ body::after {
 
 .main-logo {
     position: relative;
-    top: -50px;
+    top: 100px;
+    left: 150px; /* Logo görselinin sola kaydırılması */
     width: 420px; /* Logo görselinin genişliği, ihtiyaca göre değiştir */
-    max-width: 90vw;
-    height: auto;
+    width: 350px;
+    height: 150px;
     display: block;
     transition: 0.2s;
     cursor: pointer;
@@ -175,7 +177,8 @@ body::after {
 
 .subtitle {
     position: relative;
-    top: -30px;
+    top: 30px;
+    left: 150px;
     color: white;
     font-size: 2rem;
     margin-top: 44px;
