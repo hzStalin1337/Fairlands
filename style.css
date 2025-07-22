@@ -152,6 +152,7 @@ body::after {
 }
 .menu-btn{
     position: relative;
+    font-size: 24px;
     right: 30px;
     margin-left: 30px;
     /* Default width/height for menu button */
