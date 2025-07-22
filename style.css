@@ -135,7 +135,6 @@ body::after {
     left: 0px !important;
     bottom: 0px !important;
     outline: none;
-    box-shadow: none;
     background: none;
 }
 .socials-btn {
@@ -191,19 +190,19 @@ body::after {
 .youtube-video {
     position: relative;
     top: -270px;
-    left: 950px; /* Video görselinin sola kaydırılması */
+    left: 900px; /* Video görselinin sola kaydırılması */
     width: 568px;
     height: 368px;
     display: block;
     margin-top: 20px;
-    border-radius: 50px; /* Köşeleri yuvarla */
+    border-radius: 30px; /* Köşeleri yuvarla */
     transition: 0.2s;
 }
 
 .subtitle {
     position: relative;
     top: 30px;
-    left: 150px;
+    left: 100px;
     color: white;
     font-size: 2rem;
     margin-top: 44px;
@@ -240,14 +239,14 @@ body::after {
 }
 .animation-discord-logo-box {
     position: fixed;
-    top: 500px;
+    top: 600px;
     right: 50px; /* Sağdan boşluk bırakır, değeri ihtiyacına göre ayarla */
     display: flex;
     justify-content: right;
     align-items: right;
     width: 100%;
     height: 100px; /* Discord logosunun görünmesi için yeterli yükseklik */
-    /* animation: discord-fixed-logo-animation 1s infinite; Bu animasyon iki kez tanımlanmış */
+    z-index: 1000; /* Diğer elemanların üstünde kalması için */
 }
 .animation-discord-logo {
     display: block;
