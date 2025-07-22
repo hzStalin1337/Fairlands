@@ -193,17 +193,6 @@ body::after {
     rotate: 0.7deg;
 }
 
-.moon-efeckt {
-    position: relative;
-    z-index: -100000000;
-    width: 220px;
-    height: 220px;
-    top: -290px;
-    left: 110px; /* Ay görselinin sola kaydırılması */
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-}
-
 .youtube-video {
     position: relative;
     top: -270px;
