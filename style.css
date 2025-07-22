@@ -69,12 +69,13 @@ body {
     padding: 0;
     overflow-x: hidden; /* Yatay kaydırmayı engeller */
     font-family: inherit;
-    background-image: url('images/fetch.png'); /* Görsel dosyanızın adı ve yolu */
-    background-size: cover;          /* Görseli tam ekran yapar */
-    background-attachment: fixed;    /* Görseli sabitler */
-    background-repeat: no-repeat;    /* Tekrarlamayı engeller */
-    background-position: center center;    /* Ortalar */
-    color: rgb(255, 0, 162);            /* Yazı rengi */
+    /* Darken background image using linear-gradient overlay */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fetch.png');
+    background-size: cover;           /* Görseli tam ekran yapar */
+    background-attachment: fixed;     /* Görseli sabitler */
+    background-repeat: no-repeat;     /* Tekrarlamayı engeller */
+    background-position: center center;     /* Ortalar */
+    color: rgb(255, 0, 162);             /* Yazı rengi */
     display: flex;
     flex-direction: column; /* Dikey hizalama */
     align-items: center; /* Yatay hizalama */
@@ -84,27 +85,22 @@ body::after {
     content: "";
     display: block;
     height: 200px; /* Sayfanın en altına 200px boşluk ekler, ihtiyaca göre artırabilirsin */
+    /* filter: brightness(50%); -- Removed as darkening is now handled by background-image */
 }
-
 .navbar {
-    /* Header içinde olduğu için position: fixed; kaldırıldı */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 24px;
-    margin-right: 5px; /* İhtiyacına göre ayarla */
-    padding: 0; /* Header içinde olduğu için padding'i sıfırlayabilirsin */
+    gap: 24px; /* Space between buttons */
+    margin-right: 5px;
+    padding: 0;
 }
 
 .navbar button {
-    /* position: relative ve top kaldırıldı, navbar'ın hizalaması yeterli */
-    margin-right: 0px;
-    font-size: 2.2rem;
-    align-items: center; /* Flex item içindeki içeriği dikeyde ortalar */
-    text-align: center;
-    justify-content: center; /* Flex item içindeki içeriği yatayda ortalar */
-    padding-left: 10px;
-    padding-right: 10px;
+    display: flex; /* Use flexbox to center content (the image) */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 0; /* Remove padding as we'll set explicit width/height */
     background: none;
     border: none !important;
     border-radius: 15px;
@@ -119,13 +115,12 @@ body::after {
     transform: scale(1.05) rotate(1deg);
 }
 .navbar button:active {
-  transform: translateY(3px) scale(0.95); /* Tıklama efekti */
+    transform: translateY(3px) scale(0.95); /* Tıklama efekti */
 }
-.navbar-button:last-child {
-    display: none; /* Son butonu başlangıçta gizle (mobil için) */
-}
+/* Removed .navbar-button:last-child as it was causing issues and is handled by media query */
 
-.navbar-btn {
+/* New class for navbar button images */
+.navbar-btn-img {
     width: 100%; /* Make image take full width of its parent button */
     height: 100%; /* Make image take full height of its parent button */
     object-fit: contain; /* Ensure the image fits within the button without cropping */
@@ -133,14 +128,13 @@ body::after {
     border: none;
     outline: none;
     background: none;
-    top: 0px; /* Reset any top positioning */
-    left: 0px; /* Reset any left positioning */
-    bottom: 0px; /* Reset any bottom positioning */
-    right: 0px; /* Reset any right positioning */
 }
+
+/* Specific button dimensions */
 .socials-btn {
-    max-height: 140px;
-    max-width: 140px;
+    width: 120px; /* Example width for social button */
+    height: 60px; /* Example height for social button */
+    margin-right: 10px; /* Keep margin if needed */
 }
 .creators-btn {
     width: 190px;
@@ -151,15 +145,18 @@ body::after {
     height: 56px;
 }
 .shop-btn {
+    position: relative;
     width: 150px;
     height: 75px;
-    padding-top: 10px;
+    top: 5px;
 }
 .menu-btn{
     position: relative;
     right: 30px;
     margin-left: 30px;
-    top: 0px !important;
+    /* Default width/height for menu button */
+    width: 50px;
+    height: 50px;
 }
 .logo-placeholder {
     position: absolute;
@@ -226,16 +223,18 @@ body::after {
     transform: translateY(10px); /* Hover efekti ile yukarı kaydır */
 }
 .animation-arrowbox {
-    display: block;
-    width: 40px;
-    height: 40px;
+    display: flex; /* Changed to flex to center icon */
+    align-items: center; /* Center icon vertically */
+    justify-content: center; /* Center icon horizontally */
+    width: 60px; /* Increased size for better click area */
+    height: 60px; /* Increased size for better click area */
     color: white;
+    border: none;
     font-size: 3rem;
     margin-top: 24px;
+    cursor: pointer;
     transition: 0.2s;
     background: transparent;
-    justify-content: center;
-    align-items: center;
     animation: jump 1s infinite; /* Animasyon ekle */
 }
 .animation-arrow {
@@ -248,42 +247,11 @@ body::after {
     height: 100px; /* Okun görünmesi için yeterli yükseklik */
     z-index: 1000; /* Diğer elemanların üstünde kalması için */
 }
-.animation-discord-logo-box {
-    position: fixed;
-    top: 600px;
-    right: 50px; /* Sağdan boşluk bırakır, değeri ihtiyacına göre ayarla */
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    width: 100%;
-    height: 100px; /* Discord logosunun görünmesi için yeterli yükseklik */
-    z-index: 1000; /* Diğer elemanların üstünde kalması için */
-}
-.animation-discord-logo {
-    display: block;
-    width: 40px;
-    height: 40px;
-    color: white;
-    border: none;
-    font-size: 3rem;
-    margin-top: 24px;
-    cursor: pointer;
-    transition: 0.2s;
-    background: transparent;
-    justify-content: center;
-    align-items: center;
-    animation: discord-fixed-logo-animation 1s infinite; /* Animasyon ekle */
-}
-.animation-discord-logo:hover {
-    color: #7289DA; /* Discord'un mavi rengi */
-    text-shadow: 0 0 2px #7289DA;
-    font-size: 60px; /* Hover efekti ile boyutu artır */
-}
 
 .updates-section {
-    margin-top: 700px;      /* Daha fazla boşluk, istediğin kadar artırabilirsin */
+    margin-top: 700px;         /* Daha fazla boşluk, istediğin kadar artırabilirsin */
     width: 100%;
-    min-height: 100vh;      /* Ekran yüksekliği kadar alan kaplasın */
+    min-height: 100vh;          /* Ekran yüksekliği kadar alan kaplasın */
     background: none;
     display: flex;
     flex-direction: column;
@@ -302,7 +270,7 @@ body::after {
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;    /* Sola değil sağa yasla */
+    justify-content: flex-end;      /* Sola değil sağa yasla */
     align-items: flex-start;
     gap: 48px;
     min-height: 0;
@@ -426,35 +394,4 @@ body::after {
     rotate: 0deg; /* Döngünün sonunda döndürme sıfırlanır */
     scale: 1;
   }
-}
-
-@keyframes discord-fixed-logo-animation {
-    0% {
-        transform: translateY(0); /* Başlangıçta yerde */
-        rotate: 0deg; /* Başlangıçta hafif döndürme */
-        scale: 1;
-    }
-    50% {
-        transform: translateY(-5px); /* Zıplama tepe noktası */
-        scale: 1; /* Zıplama sırasında hafif büyütme */
-    }
-    100% {
-        transform: translateY(0); /* Geri yere inme */
-        rotate: 0deg; /* Geri yere inişte döndürme sıfırlanır */
-        scale: 1;
-    }
-}
-@media (max-width: 768px) {
-   .navbar-button {
-       display: none; /* Tüm butonları gizle */
-   }
-    /* Sadece menü butonu gösterilecekse, ona özel bir sınıf ekleyip display: block; yapmalısın. */
-    /* Örneğin: */
-    .menu-btn { /* Eğer HTML'de bir menu-btn sınıfın varsa */
-       display: block !important; /* veya flex */
-    }
-   /* Eğer son butonu hala göstermek istiyorsan */
-   .navbar-button:last-child {
-       display: block !important; /* Veya display: flex; */
-   }
 }
