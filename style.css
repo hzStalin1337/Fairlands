@@ -126,25 +126,34 @@ body::after {
 }
 
 .navbar-btn {
-    width: 220px;
-    height: 60px;
-    position: relative; /* Bu butonlar için relative kalabilir, eğer özel konumlandırma gerekiyorsa */
-    border:none !important;
-    top: 7px !important;
-    right: 0px !important;
-    left: 0px !important;
-    bottom: 0px !important;
+    width: 100%; /* Make image take full width of its parent button */
+    height: 100%; /* Make image take full height of its parent button */
+    object-fit: contain; /* Ensure the image fits within the button without cropping */
+    display: block; /* Remove any extra space below the image */
+    border: none;
     outline: none;
     background: none;
+    top: 0px; /* Reset any top positioning */
+    left: 0px; /* Reset any left positioning */
+    bottom: 0px; /* Reset any bottom positioning */
+    right: 0px; /* Reset any right positioning */
 }
 .socials-btn {
-    width: 220px !important;
-    margin-right: 10px !important;
+    max-height: 140px;
+    max-width: 140px;
 }
-.howtoplay-btn {
-    position: absolute;
+.creators-btn {
     width: 190px;
     height: 56px;
+}
+.how-to-play-btn {
+    width: 190px;
+    height: 56px;
+}
+.shop-btn {
+    width: 150px;
+    height: 75px;
+    padding-top: 10px;
 }
 .menu-btn{
     position: relative;
@@ -190,7 +199,7 @@ body::after {
 .youtube-video {
     position: relative;
     top: -270px;
-    left: 900px; /* Video görselinin sola kaydırılması */
+    left: 870px; /* Video görselinin sola kaydırılması */
     width: 568px;
     height: 368px;
     display: block;
@@ -201,8 +210,8 @@ body::after {
 
 .subtitle {
     position: relative;
-    top: 30px;
-    left: 100px;
+    top: 100px;
+    left: 50px;
     color: white;
     font-size: 2rem;
     margin-top: 44px;
@@ -231,7 +240,7 @@ body::after {
 }
 .animation-arrow {
     position: relative;
-    top: 100px;
+    top: 270px;
     display: flex;
     justify-content: center;
     align-items: center;
