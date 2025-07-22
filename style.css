@@ -213,6 +213,7 @@ body::after {
     font-size: 2rem;
     margin-top: 44px;
     font-family:inherit;
+     animation: subtitle-glow 5s infinite; /* 5 saniyede bir yanıp sönme animasyonu */
     transition: 0.2s;
 }
 .subtitle:hover {
@@ -394,4 +395,22 @@ body::after {
     rotate: 0deg; /* Döngünün sonunda döndürme sıfırlanır */
     scale: 1;
   }
+}
+@keyframes subtitle-glow {
+    0%, 100% {
+        color: white; /* Normal renk */
+        text-shadow: none; /* Gölge yok */
+    }
+    5% {
+        color: #FEDD6C; /* Parlak renk */
+        text-shadow: 0 0 10px #FEDD6C, 0 0 20px #FEDD6C; /* Parlaklık efekti */
+    }
+    10% {
+        color: white; /* Normal renk */
+        text-shadow: none; /* Gölge yok */
+    }
+    15% {
+        color: #FEDD6C; /* Parlak renk */
+        text-shadow: 0 0 10px #FEDD6C, 0 0 20px #FEDD6C; /* Parlaklık efekti */
+    }
 }
